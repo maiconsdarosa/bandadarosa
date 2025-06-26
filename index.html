@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apresentação Interativa | Banda DaRosa</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+    .slide {
+      display: none;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .active {
+      display: block;
+    }
+    h1, h2 {
+      color: #ff5252;
+    }
+    .controls {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 1rem;
+    }
+    button {
+      background-color: #ff5252;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    iframe {
+      width: 100%;
+      max-width: 720px;
+      height: 400px;
+      border: none;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide active">
+    <h1>Banda DaRosa</h1>
+    <p>Pop Rock do Rio Grande do Sul</p>
+  </div>
+
+  <div class="slide">
+    <h2>Quem Somos</h2>
+    <p>A DaRosa é uma banda autoral de pop rock formada no RS em 2010, misturando letras marcantes e arranjos vibrantes com influências da MPB e do rock nacional.</p>
+  </div>
+
+  <div class="slide">
+    <h2>Conquistas</h2>
+    <ul>
+      <li>🏆 FEARG – Premiados em 2010</li>
+      <li>🥇 Festival O Empurrão – Campeões em 2012</li>
+      <li>🎤 Abertura do Pretinho Básico – Atlântida 2012</li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>Com Quem Já Tocamos</h2>
+    <p>Dividimos palco com:</p>
+    <ul>
+      <li>Armandinho</li>
+      <li>Bidê ou Balde</li>
+      <li>Pretinho Básico (Atlântida FM)</li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>Vídeos da Banda</h2>
+    <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=DaRosaTUBE" allowfullscreen></iframe>
+  </div>
+
+  <div class="slide">
+    <h2>Fotos do Instagram</h2>
+    <iframe src="https://www.instagram.com/bandadarosa/embed" height="600" allowtransparency="true"></iframe>
+  </div>
+
+  <div class="slide">
+    <h2>Ouça Nossa Música</h2>
+    <iframe height="166" scrolling="no" allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/darosa&color=%23ff5252">
+    </iframe>
+  </div>
+
+  <div class="slide">
+    <h2>Contato</h2>
+    <p>Email: <a href="mailto:contato@bandadarosa.com.br" style="color: #ff5252;">contato@bandadarosa.com.br</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/bandadarosa" style="color: #ff5252;">@bandaDaRosa</a></p>
+    <p>YouTube: <a href="https://www.youtube.com/@DaRosaTUBE" style="color: #ff5252;">DaRosaTUBE</a></p>
+    <p>WhatsApp: (xx) xxxxx-xxxx</p>
+  </div>
+
+  <div class="controls">
+    <button onclick="prevSlide()">◀ Anterior</button>
+    <button onclick="nextSlide()">Próximo ▶</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+  </script>
+</body>
+</html>
